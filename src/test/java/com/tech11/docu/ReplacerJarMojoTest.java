@@ -25,7 +25,6 @@ public class ReplacerJarMojoTest {
 		File jarSource = new File(this.getClass().getResource("/test-javadoc.jar").getFile());
 		Path source = Paths.get(jarSource.getAbsolutePath());
 		testJarSource = jarSource.getParent() + File.separator + "TEST-" + jarSource.getName();
-		System.out.println(testJarSource);
 	    Path destination = Paths.get(testJarSource);
 	 
 	    Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
