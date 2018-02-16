@@ -15,7 +15,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo(name = "jar")
 public class ReplacerJarMojo extends AbstractReplacerMojo {
 
-	@Parameter
+	@Parameter(required=true)
 	File jarFile;
 
 	@Override
