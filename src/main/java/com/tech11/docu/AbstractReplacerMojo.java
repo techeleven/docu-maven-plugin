@@ -78,7 +78,7 @@ public abstract class AbstractReplacerMojo extends AbstractMojo {
 		while (m.find()) {
 			replacement.setModified(true);
 			String key = m.group(1);
-			replacement.foundKeys.add(key);
+			replacement.getFoundKeys().add(key);
 			Element e = docuRepoDoc.getElementById(key);
 			String tagContent = key + " <b>(There is no content for tag <i>" + key + "</i> available)</b>";
 			if (e != null)
@@ -86,7 +86,7 @@ public abstract class AbstractReplacerMojo extends AbstractMojo {
 			m.appendReplacement(resultBuffer, tagContent);
 		}
 		m.appendTail(resultBuffer);
-		replacement.content = resultBuffer.toString();
+		replacement.setContent(resultBuffer.toString());
 
 		return replacement;
 	}

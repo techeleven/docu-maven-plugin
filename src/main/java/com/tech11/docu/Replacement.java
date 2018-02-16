@@ -13,10 +13,6 @@ public class Replacement {
 		return foundKeys;
 	}
 
-	public void setFoundKeys(List<String> foundKeys) {
-		this.foundKeys = foundKeys;
-	}
-
 	public String getContent() {
 		return content;
 	}
