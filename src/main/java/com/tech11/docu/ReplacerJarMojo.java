@@ -16,15 +16,15 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo(name = "jar")
 public class ReplacerJarMojo extends AbstractReplacerMojo {
 
-	@Parameter(required=true)
+	@Parameter(required = true)
 	File jarFile;
 
 	@Override
 	void doExecute() throws IOException {
 		getLog().info("Start replacement in jarFile: " + jarFile.getAbsolutePath());
-		
+
 		runJarFile(jarFile);
-		
+
 		getLog().info(replacedFileNames.size() + " files were replaced.");
 	}
 
