@@ -2,6 +2,7 @@ package com.tech11.docu;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -52,7 +53,7 @@ public class ReplacerJarMojo extends AbstractReplacerMojo {
 							}
 
 						} catch (IOException e) {
-							throw new RuntimeException(e);
+							throw new UncheckedIOException(e);
 						}
 					});
 		}
