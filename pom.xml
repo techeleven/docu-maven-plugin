@@ -35,6 +35,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<scm.plugin.version>1.9.5</scm.plugin.version>
 
 		<!-- Test API -->
 		<surefire.plugin.version>2.19.1</surefire.plugin.version>
@@ -129,6 +131,14 @@
 				</executions>
 			</plugin>
 
+
+			<plugin>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>${scm.plugin.version}</version>
+				<configuration>
+					<tag>${project.artifactId}-${project.version}</tag>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
