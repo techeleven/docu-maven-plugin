@@ -14,20 +14,17 @@ import org.junit.jupiter.api.Test;
 
 public class ReplacerJarMojoTest {
 
-	static final String PATTERN = "#tech11-doc-lookup #(\\w*).*";
-	
-	
 	String testJarSource;
-	
+
 	@BeforeEach
 	public void init() throws IOException {
 		System.out.println("init TEST");
 		File jarSource = new File(this.getClass().getResource("/test-javadoc.jar").getFile());
 		Path source = Paths.get(jarSource.getAbsolutePath());
 		testJarSource = jarSource.getParent() + File.separator + "TEST-" + jarSource.getName();
-	    Path destination = Paths.get(testJarSource);
-	 
-	    Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+		Path destination = Paths.get(testJarSource);
+
+		Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
 	}
 
 	@Test

@@ -27,25 +27,31 @@ public class AbstractReplacerMojoTest {
 	}
 
 	@Test
-	void testPatternCase1OneSpace() {
+	void testPatternOneSpace() {
 		String testContent = "bla blub " + AbstractReplacerMojo.LOOKUP_IDENT + " test bla bla";
 		verify(testContent, new String[] { "test" });
 	}
 
 	@Test
-	void testPatternCase2ManySpace() {
+	void testPatternManySpace() {
 		String testContent = "bla blub " + AbstractReplacerMojo.LOOKUP_IDENT + "    test bla bla";
 		verify(testContent, new String[] { "test" });
 	}
 
 	@Test
-	void testPatternCaseNoSpace() {
+	void testPatternNoSpace() {
 		String testContent = "bla blub" + AbstractReplacerMojo.LOOKUP_IDENT + "test bla bla";
 		verify(testContent, new String[] { "test" });
 	}
 
 	@Test
-	void testPatternCaseTwoKeys() {
+	void testPatternWithDash() {
+		String testContent = "bla blub" + AbstractReplacerMojo.LOOKUP_IDENT + "CODE-123 bla bla";
+		verify(testContent, new String[] { "CODE-123" });
+	}
+
+	@Test
+	void testPatternTwoKeys() {
 		String testContent = "bla blub " + AbstractReplacerMojo.LOOKUP_IDENT + "1234 bla bla\n\nnew line "
 				+ AbstractReplacerMojo.LOOKUP_IDENT + "2345 bla bla";
 		verify(testContent, new String[] { "1234", "2345" });
@@ -55,6 +61,20 @@ public class AbstractReplacerMojoTest {
 	void testPatternNoMatch() {
 		String testContent = "bla blub #lookup 1234";
 		verify(testContent, new String[] {});
+	}
+
+	@Test
+	void testNoTagAvailable() {
+		String testContent = "bla blub " + AbstractReplacerMojo.LOOKUP_IDENT + " test bla bla";
+
+		Document mockedDoc = Mockito.mock(Document.class);
+		when(mockedDoc.getElementById(Matchers.anyString()))
+				.thenReturn(null);
+
+		cut.docuRepoDoc = mockedDoc;
+		Replacement r = cut.replaceContent(testContent);
+		Assertions.assertTrue(r.content.contains("There is no content for tag"));
+
 	}
 
 	void verify(String testContent, String... keys) {
