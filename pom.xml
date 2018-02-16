@@ -9,9 +9,28 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 
-	<name>Tools for advanced Docu Maven Plugin</name>
+	<scm>
+		<url>scm:git:git@github.com:techeleven/docu-maven-plugin.git</url>
+		<connection>scm:git:git@github.com:techeleven/docu-maven-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:techeleven/docu-maven-plugin.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>hill91-nexus-releases</id>
+			<url>${nexus.release.repository}</url>
+		</repository>
+		<snapshotRepository>
+			<id>hill91-nexus-snapshots</id>
+			<url>${nexuus.snapshot.repository}</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<properties>
+		<nexus.snapshot.repository>https://nexus.hill91.com/repository/hill91-maven-snapshots</nexus.snapshot.repository>
+		<nexus.release.repository>https://nexus.hill91.com/repository/hill91-maven-releases</nexus.release.repository>
+
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -76,7 +95,7 @@
 
 	<build>
 		<plugins>
-		
+
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${surefire.plugin.version}</version>
