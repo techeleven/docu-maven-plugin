@@ -7,7 +7,6 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
 
 import org.apache.maven.plugins.annotations.Mojo;
@@ -18,8 +17,6 @@ public class ReplacerJarMojo extends AbstractReplacerMojo {
 
 	@Parameter
 	File jarFile;
-
-	static final Pattern PATTERN = Pattern.compile("#tech11-doc-lookup #(\\w*).*");
 
 	@Override
 	void doExecute() throws IOException {

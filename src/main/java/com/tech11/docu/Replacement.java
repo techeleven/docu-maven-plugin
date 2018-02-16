@@ -1,14 +1,20 @@
 package com.tech11.docu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Replacement {
 
 	String content;
-	boolean modified;
+	boolean modified = false;
+	List<String> foundKeys = new ArrayList<>();
 
-	public Replacement(String content, boolean modified) {
-		super();
-		this.content = content;
-		this.modified = modified;
+	public List<String> getFoundKeys() {
+		return foundKeys;
+	}
+
+	public void setFoundKeys(List<String> foundKeys) {
+		this.foundKeys = foundKeys;
 	}
 
 	public String getContent() {
