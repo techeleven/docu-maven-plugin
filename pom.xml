@@ -6,7 +6,7 @@
 
 	<groupId>com.tech11</groupId>
 	<artifactId>docu-maven-plugin</artifactId>
-	<version>0.9.4-SNAPSHOT</version>
+	<version>0.9.4</version>
 	<packaging>maven-plugin</packaging>
 
 	<scm>
