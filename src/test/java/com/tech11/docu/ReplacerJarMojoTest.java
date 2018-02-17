@@ -18,7 +18,6 @@ public class ReplacerJarMojoTest {
 
 	@BeforeEach
 	public void init() throws IOException {
-		System.out.println("init TEST");
 		File jarSource = new File(this.getClass().getResource("/test-javadoc.jar").getFile());
 		Path source = Paths.get(jarSource.getAbsolutePath());
 		testJarSource = jarSource.getParent() + File.separator + "TEST-" + jarSource.getName();
