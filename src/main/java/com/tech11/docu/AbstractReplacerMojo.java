@@ -47,7 +47,8 @@ public abstract class AbstractReplacerMojo extends AbstractMojo {
 	}
 
 	void buildPattern() {
-		pattern = Pattern.compile(docuPattern + "\\s*([\\w-]*)\\s.*");
+		System.out.println("buildPattern: " + docuPattern);
+		pattern = Pattern.compile(docuPattern + "\\s*([\\w-]*)");
 	}
 
 	abstract void doExecute() throws IOException;
@@ -81,11 +82,17 @@ public abstract class AbstractReplacerMojo extends AbstractMojo {
 		Replacement replacement = new Replacement();
 
 		StringBuffer resultBuffer = new StringBuffer();
+		System.out.println("pattern: " + pattern.pattern());
 		Matcher m = pattern.matcher(source);
 		while (m.find()) {
+			System.out.println("match: " + m.group());
+			System.out.println("match0: " + m.group(0));
 			replacement.setModified(true);
 			String key = m.group(1);
 			replacement.getFoundKeys().add(key);
+			
+			getLog().info("key: " + key);
+			System.out.println("key2: " + key);
 			Element e = docuRepoDoc.getElementById(key);
 			String tagContent = key + " <b>(There is no content for tag <i>" + key + "</i> available)</b>";
 			if (e != null)

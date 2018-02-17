@@ -76,7 +76,12 @@ public class AbstractReplacerMojoTest {
 		cut.docuRepoDoc = mockedDoc;
 		Replacement r = cut.replaceContent(testContent);
 		Assertions.assertTrue(r.content.contains("There is no content for tag"));
-
+	}
+	
+	@Test
+	void testPatternNoSpaceAtTheEnd() {
+		String testContent = "<div class=\"block\">#docu: ACCOUNTING-processNewContractVersion-content</div>";
+		verify(testContent, new String[] {"ACCOUNTING-processNewContractVersion-content"});
 	}
 
 	void verify(String testContent, String... keys) {

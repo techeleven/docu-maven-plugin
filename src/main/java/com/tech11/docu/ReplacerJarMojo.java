@@ -42,7 +42,6 @@ public class ReplacerJarMojo extends AbstractReplacerMojo {
 
 						try {
 							String content = new String(Files.readAllBytes(htmlFileInsideZip));
-
 							Replacement replacement = replaceContent(content);
 							if (replacement.isModified()) {
 								replacedFileNames.add(htmlFileInsideZip.toString());
