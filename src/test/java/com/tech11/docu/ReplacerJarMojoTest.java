@@ -33,8 +33,9 @@ public class ReplacerJarMojoTest {
 
 		rjm.jarFile = new File(testJarSource);
 		rjm.fileSuffix = "html";
+		rjm.docuPattern = "#docu-lookup:";
 		rjm.docuRepoPath = this.getClass().getResource("/docu-repo.html").getFile();
-
+		
 		rjm.execute();
 		Assertions.assertEquals(4, rjm.replacedFileNames.size());
 	}

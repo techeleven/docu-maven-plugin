@@ -21,8 +21,8 @@ import org.jsoup.nodes.Element;
 
 public abstract class AbstractReplacerMojo extends AbstractMojo {
 
-	static final String LOOKUP_IDENT = "#docu-lookup:";
-	static final Pattern PATTERN = Pattern.compile(LOOKUP_IDENT + "\\s*([\\w-]*).*");
+	@Parameter(defaultValue = "#docu:")
+	String docuPattern;
 
 	@Parameter(defaultValue = "html")
 	String fileSuffix;
@@ -32,15 +32,22 @@ public abstract class AbstractReplacerMojo extends AbstractMojo {
 
 	Document docuRepoDoc;
 
+	Pattern pattern;
+
 	List<String> replacedFileNames = new ArrayList<>();
 
 	public void execute() throws MojoExecutionException {
+		buildPattern();
 		try {
 			initRepoDoc();
 			doExecute();
 		} catch (IOException e) {
 			throw new MojoExecutionException(e.getMessage(), e);
 		}
+	}
+
+	void buildPattern() {
+		pattern = Pattern.compile(docuPattern + "\\s*([\\w-]*)\\s.*");
 	}
 
 	abstract void doExecute() throws IOException;
@@ -74,7 +81,7 @@ public abstract class AbstractReplacerMojo extends AbstractMojo {
 		Replacement replacement = new Replacement();
 
 		StringBuffer resultBuffer = new StringBuffer();
-		Matcher m = PATTERN.matcher(source);
+		Matcher m = pattern.matcher(source);
 		while (m.find()) {
 			replacement.setModified(true);
 			String key = m.group(1);

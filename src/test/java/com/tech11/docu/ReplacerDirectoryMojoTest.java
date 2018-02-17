@@ -53,6 +53,7 @@ public class ReplacerDirectoryMojoTest {
 
 		rdm.sourceDir = testDir;
 		rdm.fileSuffix = "html";
+		rdm.docuPattern = "#docu-lookup:";
 		rdm.docuRepoPath = this.getClass().getResource("/docu-repo.html").getFile();
 
 		rdm.execute();
