@@ -195,6 +195,7 @@ public class AccountingClient {
 }
 ```
 
+As you can see, the class `AccountingResource` and `AccountingClient` share the same documentation.
 
 
 ## Configuration
