@@ -14,7 +14,7 @@ At [tech11](https://tech11.com), the source code is the basis for our API docume
 
 ### Different clients with same API description
 
-You provide REST Web Services to your customers. With *enunciate* you can directly generate the REST API 
+You provide REST Web Services to your customers? With *enunciate* you can directly generate the REST API 
 documentation based on your JavaDoc comments in your JAX-RS resource class/interface.
 
 That's fine! But in case your customers are Java fan boys, you would like to provide also a Java client for this REST Web Service.
@@ -25,7 +25,7 @@ documentation of the the Java client classes. The *docu-maven-plugin* supports y
 ### Share documentation across projects
 
 In a microservice landscape each service has its own data model. Nevertheless, from a business point of view many 
-objects or also only attributes from these different services are identically.
+objects, or also only attributes, from these different services are identically.
 
 For example, the attribute `premiumNet` is used in different data model of different services (policy, tariff, 
 accounting, etc.). With the *docu-maven-plugin* you can write the detailed description of this attribute once 
@@ -41,7 +41,7 @@ The plugin reads just a HTML file as a kind of *documentation repository*. The c
 are the base for the documentation, contains just a *flag* with an ID of the corresponding section in the documentation 
 repository. 
 
-The documentation is generated as as usual by your build script.
+The documentation is generated as usual by your build script.
 
 * maven-javadoc-plugin:jar (HTML files inside a jar file)
 
