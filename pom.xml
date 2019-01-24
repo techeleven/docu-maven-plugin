@@ -18,18 +18,18 @@
 
 	<distributionManagement>
 		<repository>
-			<id>hill91-nexus-releases</id>
+			<id>tech11-nexus-releases</id>
 			<url>${nexus.release.repository}</url>
 		</repository>
 		<snapshotRepository>
-			<id>hill91-nexus-snapshots</id>
+			<id>tech11-nexus-snapshots</id>
 			<url>${nexuus.snapshot.repository}</url>
 		</snapshotRepository>
 	</distributionManagement>
 
 	<properties>
-		<nexus.snapshot.repository>https://nexus.hill91.com/repository/hill91-maven-snapshots</nexus.snapshot.repository>
-		<nexus.release.repository>https://nexus.hill91.com/repository/hill91-maven-releases</nexus.release.repository>
+		<nexus.snapshot.repository>https://nexus.tech11.com/repository/tech11-maven-snapshots</nexus.snapshot.repository>
+		<nexus.release.repository>https://nexus.tech11.com/repository/tech11-maven-releases</nexus.release.repository>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
